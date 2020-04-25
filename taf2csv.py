@@ -46,8 +46,11 @@ def creaLista(TAFpath,idProv,listaComuni):
     btn.grid(in_=labelframe, row=3, column=1, sticky=W)
 
 def esportaCSV(TAFpath,idProv,idComune):
-    fileTAF = TAFpath + idProv + ".taf"
-    fileCSV = TAFpath + idProv + "_" + idComune + ".csv"
+    fileTAF = TAFpath + "/" + idProv + ".taf"
+    fileTAF = os.path.normpath(fileTAF)
+    print(fileTAF)
+    fileCSV = TAFpath + "/" + idProv + "_" + idComune + ".csv"
+    fileCSV = os.path.normpath(fileCSV)
     stringaPF = "nome;est;nord;descrizione"
     with open(fileCSV, "w") as file:
                     file.write(stringaPF + "\n")
