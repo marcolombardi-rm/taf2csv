@@ -63,11 +63,7 @@ def esportaCSV(TAFpath,idProv,idComune):
                     comSez = ""
                 tmp = int(data[15:17])
                 fgAll = data[11:12]
-                fgCod = str(data[6:10])
-                if fgCod[0:1] == " ":
-                    fgCod = "0" + fgCod[2:4]
-                if fgCod[1:2] == " ":
-                    fgCod = "00" + fgCod[2:4]    
+                fgCod = str(data[6:10])    
                 if fgCod[0:2] == "10":
                     fgCod = "A" + fgCod[2:4]                            
                 if fgCod[0:2] == "11":
