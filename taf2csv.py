@@ -48,7 +48,7 @@ def creaLista(TAFpath,idProv,listaComuni):
 def esportaCSV(TAFpath,idProv,idComune):
     fileTAF = TAFpath + "/" + idProv + ".taf"
     fileTAF = os.path.normpath(fileTAF)
-    print(fileTAF)
+    #print(fileTAF)
     fileCSV = TAFpath + "/" + idProv + "_" + idComune + ".csv"
     fileCSV = os.path.normpath(fileCSV)
     stringaPF = "nome;est;nord;descrizione"
@@ -63,7 +63,11 @@ def esportaCSV(TAFpath,idProv,idComune):
                     comSez = ""
                 tmp = int(data[15:17])
                 fgAll = data[11:12]
-                fgCod = str(data[6:10])    
+                fgCod = str(data[6:10])
+                if fgCod[2:3] == " ":
+                    fgCod = "000" + fgCod[3:4]
+                if fgCod[0:2] == "  ":
+                    fgCod = "00" + fgCod[2:4]    
                 if fgCod[0:2] == "10":
                     fgCod = "A" + fgCod[2:4]                            
                 if fgCod[0:2] == "11":
@@ -76,7 +80,7 @@ def esportaCSV(TAFpath,idProv,idComune):
                     stringaPF = "PF0%1s/%3s%1s/" % (tmp,fgCod[-3:],fgAll) + idComune + comSez + ";" + x.strip() + ";" + y.strip() + ";" + pfDescr
                 else:
                     stringaPF = "PF%2s/%3s%1s/" % (tmp,fgCod[-3:],fgAll) + idComune + comSez + ";" + x.strip() + ";" + y.strip() + ";" + pfDescr
-                #print(stringaPF)    
+                print(stringaPF)    
                 with open(fileCSV, "a") as file:
                     file.write(stringaPF + "\n")
 
