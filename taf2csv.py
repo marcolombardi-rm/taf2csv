@@ -6,6 +6,7 @@ import os
 mainwindow = tk.Tk()
 mainwindow.geometry("475x120")
 mainwindow.title("taf2csv v0.1 - )c( Copyleft Marco LOMBARDI - 2020")
+mainwindow.resizable(0,0)
 framewindow = tk.Frame()
 
 def openTAF():
